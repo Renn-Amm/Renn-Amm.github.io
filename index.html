@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aung Min Myat - Computer Scientist</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/icons/letter-a.png">
     <style>
         * {
             margin: 0;
@@ -469,6 +469,7 @@
             gap: 1.2rem;
         }
 
+        /* Technical Skills Section */
         .skill-item {
             display: flex;
             flex-direction: column;
@@ -478,20 +479,46 @@
             cursor: pointer;
         }
 
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .skill-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .skill-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #00d4ff, #6c63ff);
+            transition: width 0.3s ease;
+        }
+
         .skill-item:hover {
             transform: scale(1.05);
         }
 
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #00d4ff;
-            transition: all 0.3s ease;
+        .skill-item:hover .skill-icon img {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 10px 20px rgba(0, 212, 255, 0.4));
         }
 
-        .skill-item:hover .skill-icon {
-            transform: translateY(-5px);
-            text-shadow: 0 10px 20px rgba(0, 212, 255, 0.4);
+        .skill-item:hover .skill-icon::after {
+            width: 100%;
         }
 
         .skill-name {
@@ -499,16 +526,16 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 500;
+            margin-top: 0.5rem;
         }
-
         /* Soft Skills Section */
         .soft-skills-container {
             margin-top: 3rem;
-            margin-bottom: 3rem; /* Added space below */
+            margin-bottom: 3rem;
         }
 
         .soft-skills-title {
-            color: #6c63ff; /* New calm purple color */
+            color: white;
             text-align: center;
             font-size: clamp(1.5rem, 3vw, 2rem);
             margin-bottom: 1.5rem;
@@ -523,46 +550,77 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background: #6c63ff; /* Matching purple */
+            background: linear-gradient(45deg, #00d4ff, #6c63ff);
             border-radius: 2px;
         }
 
         .soft-skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.2rem; 
+            margin-top: 1rem;
         }
 
         .soft-skill-item {
+            font-size: 2rem; 
+            margin-bottom: 0.3rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1.2rem 0.8rem;
+            padding: 0.8rem 0.5rem; 
             transition: all 0.3s ease;
             cursor: pointer;
+        }
+
+        .soft-skill-icon {
+            font-size: 2rem; 
+            margin-bottom: 0.3rem; 
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .soft-skill-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .soft-skill-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            transition: width 0.3s ease;
         }
 
         .soft-skill-item:hover {
             transform: scale(1.05);
         }
 
-        .soft-skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #6c63ff; /* Purple icon */
-            transition: all 0.3s ease;
+        .soft-skill-item:hover .soft-skill-icon img {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 10px 20px rgba(108, 99, 255, 0.4));
         }
 
-        .soft-skill-item:hover .soft-skill-icon {
-            transform: translateY(-5px);
-            text-shadow: 0 10px 20px rgba(108, 99, 255, 0.4);
+        .soft-skill-item:hover .soft-skill-icon::after {
+            width: 100%;
         }
 
         .soft-skill-name {
-            font-size: 0.9rem;
+            font-size: 0.85rem; 
             text-align: center;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 500;
+            margin-top: 0.5rem;
         }
 
         /* About Section */
@@ -1171,7 +1229,7 @@
         <div class="section-bg projects-bg"></div>
         <div class="projects-particles" id="projects-particles"></div>
         <div class="section-container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">Key Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
@@ -1256,189 +1314,295 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+        <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="section-bg skills-bg"></div>
         <div class="waves-bg"></div>
         <div class="section-container">
-            <h2 class="section-title">Skills & Expertise</h2>
+            <h2 class="section-title">Technical Skills</h2>
             
             <div class="skills-tabs">
                 <button class="skills-tab active" data-tab="all">All Skills</button>
-                <button class="skills-tab" data-tab="programming">Programming Languages</button>
-                <button class="skills-tab" data-tab="frameworks">Frameworks & Libraries</button>
+                <button class="skills-tab" data-tab="programming">Programming</button>
+                <button class="skills-tab" data-tab="frameworks">Frameworks</button>
                 <button class="skills-tab" data-tab="tools">Tools</button>
             </div>
             
             <div class="skills-container">
-                <!-- All Skills -->
+                <!-- All Skills Tab -->
                 <div id="all" class="skills-content active">
                     <div class="skills-grid">
                         <!-- Programming Languages -->
                         <div class="skill-item">
-                            <i class="fab fa-python skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/python.png" alt="Python">
+                            </div>
                             <span class="skill-name">Python</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-java skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/java.png" alt="Java">
+                            </div>
                             <span class="skill-name">Java</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-js skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/js.png" alt="JavaScript">
+                            </div>
                             <span class="skill-name">JavaScript</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-html5 skill-icon"></i>
-                            <span class="skill-name">HTML5</span>
+                            <div class="skill-icon">
+                                <img src="images/icons/html.png" alt="HTML5">
+                            </div>
+                            <span class="skill-name">HTML</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-css3-alt skill-icon"></i>
-                            <span class="skill-name">CSS3</span>
+                            <div class="skill-icon">
+                                <img src="images/icons/css.png" alt="CSS3">
+                            </div>
+                            <span class="skill-name">CSS</span>
                         </div>
                         
                         <!-- Frameworks & Libraries -->
                         <div class="skill-item">
-                            <i class="fab fa-react skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/atom.png" alt="React">
+                            </div>
                             <span class="skill-name">React.js</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-mobile-alt skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/tailwind.png" alt="Tailwind CSS">
+                            </div>
+                            <span class="skill-name">Tailwind CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="images/icons/flutter.png" alt="Flutter">
+                            </div>
                             <span class="skill-name">Flutter</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-android skill-icon"></i>
-                            <span class="skill-name">Android</span>
+                            <div class="skill-icon">
+                                <img src="images/icons/app.png" alt="Android">
+                            </div>
+                            <span class="skill-name">Android Studios</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-database skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/mysql.png" alt="MySQL">
+                            </div>
                             <span class="skill-name">MySQL</span>
                         </div>
                         
                         <!-- Tools -->
                         <div class="skill-item">
-                            <i class="fab fa-git-alt skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/social.png" alt="Git">
+                            </div>
                             <span class="skill-name">Git</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-github skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/github.png" alt="GitHub">
+                            </div>
                             <span class="skill-name">GitHub</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-wordpress skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/wordpress.png" alt="WordPress">
+                            </div>
                             <span class="skill-name">WordPress</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-server skill-icon"></i>
-                            <span class="skill-name">XAMPP/WAMP</span>
+                            <div class="skill-icon">
+                                <img src="images/icons/windows.png" alt="Windows">
+                            </div>
+                            <span class="skill-name">Windows</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="images/icons/word.png" alt="Windows">
+                            </div>
+                            <span class="skill-name">Word</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="images/icons/powerpoint.png" alt="Windows">
+                            </div>
+                            <span class="skill-name">PowerPoint</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Programming Languages -->
+                <!-- Programming Languages Tab -->
                 <div id="programming" class="skills-content">
                     <div class="skills-grid">
                         <div class="skill-item">
-                            <i class="fab fa-python skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/python.png" alt="Python">
+                            </div>
                             <span class="skill-name">Python</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-java skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/java.png" alt="Java">
+                            </div>
                             <span class="skill-name">Java</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-js skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/js.png" alt="JavaScript">
+                            </div>
                             <span class="skill-name">JavaScript</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-html5 skill-icon"></i>
-                            <span class="skill-name">HTML5</span>
+                            <div class="skill-icon">
+                                <img src="images/icons/html.png" alt="HTML5">
+                            </div>
+                            <span class="skill-name">HTML</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-css3-alt skill-icon"></i>
-                            <span class="skill-name">CSS3</span>
+                            <div class="skill-icon">
+                                <img src="images/icons/css.png" alt="CSS3">
+                            </div>
+                            <span class="skill-name">CSS</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Frameworks & Libraries -->
+                <!-- Frameworks & Libraries Tab -->
                 <div id="frameworks" class="skills-content">
                     <div class="skills-grid">
                         <div class="skill-item">
-                            <i class="fab fa-react skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/atom.png" alt="React">
+                            </div>
                             <span class="skill-name">React.js</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-mobile-alt skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/tailwind.png" alt="Tailwind CSS">
+                            </div>
+                            <span class="skill-name">Tailwind CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="images/icons/flutter.png" alt="Flutter">
+                            </div>
                             <span class="skill-name">Flutter</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-android skill-icon"></i>
-                            <span class="skill-name">Android</span>
+                            <div class="skill-icon">
+                                <img src="images/icons/app.png" alt="Android">
+                            </div>
+                            <span class="skill-name">Android Studios</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-database skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/mysql.png" alt="MySQL">
+                            </div>
                             <span class="skill-name">MySQL</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Tools -->
+                <!-- Tools Tab -->
                 <div id="tools" class="skills-content">
                     <div class="skills-grid">
                         <div class="skill-item">
-                            <i class="fab fa-git-alt skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/social.png" alt="Git">
+                            </div>
                             <span class="skill-name">Git</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-github skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons//github.png" alt="GitHub">
+                            </div>
                             <span class="skill-name">GitHub</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-wordpress skill-icon"></i>
+                            <div class="skill-icon">
+                                <img src="images/icons/wordpress.png" alt="WordPress">
+                            </div>
                             <span class="skill-name">WordPress</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-server skill-icon"></i>
-                            <span class="skill-name">XAMPP/WAMP</span>
+                            <div class="skill-icon">
+                                <img src="images/icons/windows.png" alt="Windows">
+                            </div>
+                            <span class="skill-name">Windows</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="images/icons/word.png" alt="Windows">
+                            </div>
+                            <span class="skill-name">Word</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="images/icons/powerpoint.png" alt="Windows">
+                            </div>
+                            <span class="skill-name">PowerPoint</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
+ 
             <!-- Soft Skills Section -->
             <div class="soft-skills-container">
-                <h3 class="soft-skills-title">Soft Skills</h3>
+                <h2 class="section-title">Soft Skills</h2>
                 <div class="soft-skills-grid">
                     <div class="soft-skill-item">
-                        <i class="fas fa-users soft-skill-icon"></i>
+                        <div class="soft-skill-icon">
+                            <img src="images/icons/collaborative.png" alt="Teamwork">
+                        </div>
                         <span class="soft-skill-name">Teamwork</span>
                     </div>
                     <div class="soft-skill-item">
-                        <i class="fas fa-lightbulb soft-skill-icon"></i>
+                        <div class="soft-skill-icon">
+                            <img src="images/icons/idea.png" alt="Problem Solving">
+                        </div>
                         <span class="soft-skill-name">Problem Solving</span>
                     </div>
                     <div class="soft-skill-item">
-                        <i class="fas fa-sync-alt soft-skill-icon"></i>
+                        <div class="soft-skill-icon">
+                            <img src="images/icons/adapt.png" alt="Adaptability">
+                        </div>
                         <span class="soft-skill-name">Adaptability</span>
                     </div>
                     <div class="soft-skill-item">
-                        <i class="fas fa-pencil-ruler soft-skill-icon"></i>
+                        <div class="soft-skill-icon">
+                            <img src="images/icons/creativity.png" alt="Creativity">
+                        </div>
                         <span class="soft-skill-name">Creativity</span>
                     </div>
                     <div class="soft-skill-item">
-                        <i class="fas fa-brain soft-skill-icon"></i>
+                        <div class="soft-skill-icon">
+                            <img src="images/icons/analysis.png" alt="Critical Thinking">
+                        </div>
                         <span class="soft-skill-name">Critical Thinking</span>
                     </div>
                     <div class="soft-skill-item">
-                        <i class="fas fa-comments soft-skill-icon"></i>
+                        <div class="soft-skill-icon">
+                            <img src="images/icons/chat.png" alt="Communication">
+                        </div>
                         <span class="soft-skill-name">Communication</span>
                     </div>
                     <div class="soft-skill-item">
-                        <i class="fas fa-tasks soft-skill-icon"></i>
+                        <div class="soft-skill-icon">
+                            <img src="images/icons/time.png" alt="Time Management">
+                        </div>
                         <span class="soft-skill-name">Time Management</span>
                     </div>
                     <div class="soft-skill-item">
-                        <i class="fas fa-handshake soft-skill-icon"></i>
+                        <div class="soft-skill-icon">
+                            <img src="images/icons/deal.png" alt="Collaboration">
+                        </div>
                         <span class="soft-skill-name">Collaboration</span>
                     </div>
                 </div>
@@ -1627,7 +1791,7 @@
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Here you would typically send the form data to a server
+            
             alert('Message sent successfully!');
             contactForm.reset();
         });
